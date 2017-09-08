@@ -1,5 +1,4 @@
 # js_game
 javascript game
 
-
-other branch change
+"面向对象重构"
