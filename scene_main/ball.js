@@ -1,39 +1,32 @@
-var Ball = function(game){
-    var o = game.imageByName('ball')
-    o.x = 150
-    o.y = 230
-    o.speedX = 5
-    o.speedY = 5
-    o.fired = false
-    o.fire = function(){
-        o.fired = true
+class Ball extends GuaImage{
+    constructor(game, name){
+        super(game, name)
+        this.x = 180
+        this.y = 260
+        this.speedX = 5
+        this.speedY = 5
+        this.fired = false
     }
 
-    o.move = function(){
-        if(o.fired){
-            //检测边界
-            if (o.x < 0 || o.x > (400 - o.image.width)) {
-                o.speedX = -o.speedX
-            }
-
-            if (o.y < 0 || o.y > (300 - o.image.height)) {
-                o.speedY = -o.speedY
-            }
-            
-            o.x += o.speedX
-            o.y -= o.speedY
+    move(){
+        //检测边界
+        if (this.x < 0 || this.x > (400 - this.texture.w) ) {
+            this.x = -this.x
         }
+        if (this.y < 0) {
+            this.y = -thix.y
+        }
+        this.x += this.speedX
+        this.y -= this.speedY
+
     }
 
-    o.fanTan = function(){
-        o.speedY *= -1
+    collide(b){
+        let a = this
+        let x = rectangle(a.x, b.x, a.y, b.y, a.texture.w, b.texture.w, a.texture.h, b.texture.h)
+        let y = rectangle(b.x, a.x, b.y, a.y, b.texture.w, a.texture.w, b.texture.h, a.texture.h)
+        return x || y
     }
 
-    o.hasPoint = function(x, y){
-        var xIn = x >= o.x && x <= o.x + o.w
-        var yIn = y >= o.y && y <= o.y + o.h
-        return xIn && yIn
-    }
 
-    return o
 }
