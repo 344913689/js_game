@@ -14,16 +14,19 @@ const imageFromPath = function(path){
 
 const rectangle = function(ax, bx, ay, by, aw, bw, ah, bh) {
     // 检测矩形相交
+    // 左上
     if (((ax + aw) > bx) && ((ax + aw) < (bx + bw))) {
         if (((ay + ah) > by) && ((ay + ah) < (by + bh))) {
             return true
         }
     }
+    // 左下
     if (((ax + aw) > bx) && ((ax + aw) < (bx + bw))) {
         if ((ay > by) && (ay  < (by + bh))) {
             return true
         }
     }
+    //右上
     if ((ax > bx) && (ax < (bx + bw))) {
         if (((ay + ah) > by) && ((ay + ah) < (by + bh))) {
             return true

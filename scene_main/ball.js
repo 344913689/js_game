@@ -8,13 +8,21 @@ class Ball extends GuaImage{
         this.fired = false
     }
 
+    fire(){
+        this.fired = true
+    }
+
     move(){
+        if (!this.fired) {
+            return
+        }
+
         //检测边界
         if (this.x < 0 || this.x > (400 - this.texture.w) ) {
-            this.x = -this.x
+            this.speedX = -this.speedX
         }
-        if (this.y < 0) {
-            this.y = -thix.y
+        if (this.y < 0 || this.y > (300 - this.texture.h)) {
+            this.speedY = -this.speedY
         }
         this.x += this.speedX
         this.y -= this.speedY
@@ -28,5 +36,8 @@ class Ball extends GuaImage{
         return x || y
     }
 
+    fanTan(){
+        this.speedY = -this.speedY
+    }
 
 }

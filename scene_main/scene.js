@@ -31,14 +31,17 @@ class Scene extends GuaScene{
             s.paddle.moveRight()
         })
 
-        // g.registerAction(' ', function(){
-        //     ball.fire()
-        // })
+        g.registerAction(' ', function(){
+            s.ball.fire()
+        })
 
     }
 
     update(){
-        
+        this.ball.move()
+        if (this.ball.collide(this.paddle)) {
+            this.ball.fanTan()
+        }
     }
 
 }
