@@ -1,17 +1,3 @@
-var loadLevel = function (game, n) {
-    n = n-1
-    var level = levels[n]
-    var blocks = []
-    for (var i = level.length - 1; i >= 0; i--) {
-        var p = level[i]
-        var b = Block(game, p)
-        //设置block坐标
-        b.x = p[0]
-        b.y = p[1]
-        blocks.push(b)
-        }
-    return blocks
-}
 
 var blocks =[]
 var enableDebugMod = function(game, enable){
@@ -48,7 +34,7 @@ var __main = function(){
         ball: 'img/ball.png',
         block0: 'img/block1.png',
         block1: 'img/block2.png',
-        block3: 'img/block3.png',
+        block2: 'img/block3.png',
         block3: 'img/block4.png',
         block4: 'img/block5.png',
     }

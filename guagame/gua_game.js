@@ -28,6 +28,10 @@ class GuaGame{
     drawImage(guaImg){
         this.context.drawImage(guaImg.texture.image, guaImg.x, guaImg.y)
     }
+
+    clear(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    }
     
     update(){
         this.scene.update()
@@ -40,7 +44,7 @@ class GuaGame{
     registerAction(key, callback){
         this.actions[key] = callback
     }
-
+    
     runloop(){
         //events
         let g = this
@@ -55,7 +59,7 @@ class GuaGame{
         //update
         g.update()
         //clear
-        g.context.clearRect(0, 0, g.canvas.width, g.canvas.height)
+        g.clear()
         //draw
         g.draw()
 

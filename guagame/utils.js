@@ -32,6 +32,7 @@ const rectangle = function(ax, bx, ay, by, aw, bw, ah, bh) {
             return true
         }
     }
+    //右下
     if ((ax > bx) && (ax < (bx + bw))) {
         if ((ay > by) && (ay < (by + bh))) {
             return true
@@ -48,3 +49,5 @@ const inside = function(x, o, r, u, l){
     }
     return false
 }
+
+

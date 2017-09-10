@@ -14,14 +14,10 @@ class   GuaScene{
     }
 
     draw(){
-        for (var i = 0; i <= this.elements.length - 1; i++) {
-            let e = this.elements[i]
+        for (let e of this.elements) {
             this.game.drawImage(e)
         }
     }
 
-    update(){
-        
-    }
 }
 

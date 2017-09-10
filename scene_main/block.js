@@ -1,29 +1,15 @@
-var Block = function(game, position){
-    //position 是 [0,0]格式
-    var p = position
-    var img = game.imageByName('block')
-
-    var o = {
-        x: p[0],
-        y: p[1],
-        alive: true,
-        lives: p[2] || 1
+class Block extends GuaImage{
+    constructor(game, name){        
+        super(game, name)
+        this.game = game
+        this.alive = true
     }
 
-    o.image = img.image
-    o.w = img.w
-    o.h = img.h
-    o.kill = function() {
-        o.lives --
-        if (o.lives < 1){
-            o.alive = false
+    kill(){
+        this.lives --
+        if (this.lives < 1){
+            this.alive = false
         }
-        
     }
 
-    o.collide = function(ball){
-        return o.alive && (aInb(o, ball) || aInb(ball, o))
-    }
-
-    return o
 }
